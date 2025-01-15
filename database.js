@@ -1,13 +1,11 @@
 import mongoose from 'mongoose';
 
-const mongodbUri ="mongodb+srv://Afaq-admin:IRi7iEmNkEE9tzq8@cluster0.7cka5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const mongodbUri = process.env.MONGO_URI
 
 
 const connectDB = async () => {
     try {
-      const connectionInstance = await mongoose.connect(mongodbUri, {
-        dbName: "my-todo-db",
-      });
+      const connectionInstance = await mongoose.connect(mongodbUri);
   
       console.log(`\n🌿 MongoDB connected ! 🍃\n`);
   
