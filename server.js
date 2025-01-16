@@ -17,15 +17,12 @@ app.use(
     ],
   }),
 );
-
+ 
 app.get("/api/v1/todos", async(request, response) => {
 
  try {
   const todos = await Todo.find({},
-    {ip:0, __v:0, updatedAt: 0 } // projection (0 wale front per nhi ai ga)
-    // {todoContent:1} // surf todo content show ho ga frontend per bike kuch show nhi hoga
-    // {todoContent:1,_id:0} // advance surf id ma different key add ho sagti hy like 0 or 1
-  );
+    {ip:0, __v:0, updatedAt: 0 });
   
     const message = !todos.length ? "todos empty" : "ye lo sub todos";
     response.send({ data: todos, message: message });
@@ -33,7 +30,6 @@ app.get("/api/v1/todos", async(request, response) => {
   response.status(500).send("internal server error");
  }
 });
-
 
 
 
