@@ -19,14 +19,10 @@ export default function App() {
 
   const getTodo = async () => {
     try {
-      const res = await axios(`${getUrl}/api/v1/todos`);
+      const res = await axios(`${getUrl()}/api/v1/todos`);
     const todosFromServer = res?.data?.data;
     console.log("todosFromServer ", todosFromServer);
 
-    // const newnew = todosFromServer.map((todo) => {
-    //   return {...todo,isEditing: false,
-    //   };
-    // });
 
     setTodos(todosFromServer);
     } catch (err) {
@@ -45,7 +41,7 @@ export default function App() {
 
       const todoValue = event.target.children[0].value;
 
-      await axios.post(`${getUrl}/api/v1/todo`, {
+      await axios.post(`${getUrl()}/api/v1/todo`, {
         todo: todoValue,
       });
       getTodo();
@@ -64,7 +60,7 @@ export default function App() {
 
       const todoValue = event.target.children[0].value;
 
-      await axios.patch(`${getUrl}/api/v1/todo/${todoId}`, {
+      await axios.patch(`${getUrl()}/api/v1/todo/${todoId}`, {
         todoContent: todoValue,
       });
       getTodo();
@@ -81,7 +77,7 @@ export default function App() {
     try {
       console.log("todoId", todoId);
 
-      const res = await axios.delete(`${getUrl}/api/v1/todo/${todoId}`);
+      const res = await axios.delete(`${getUrl()}/api/v1/todo/${todoId}`);
       console.log("data", res.data);
 
       toast(res.data?.message);
