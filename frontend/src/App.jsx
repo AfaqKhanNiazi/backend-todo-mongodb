@@ -6,7 +6,7 @@ export const getUrl = () => {
   const isHosted = window.location.href.includes("https");
 
   const baseUrl = isHosted
-    ? "https://todo-mongodb-rosy.vercel.app"
+    ? "https://todo-mongodb-sand.vercel.app/"
     : "http://localhost:5002";
   return baseUrl;
 };

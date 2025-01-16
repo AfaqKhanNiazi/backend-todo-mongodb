@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "http://localhost:5173","https://back-end-todo-list.surge.sh",
+      "http://localhost:5173","https://back-end-todo-list.surge.sh,https://todo-mongodb-sand.vercel.app",
     ],
   }),
 );
