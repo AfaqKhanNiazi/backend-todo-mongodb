@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 
 const mongodbUri = process.env.MONGO_URI
 
+console.log("Afaq-Khan");
+
 
 const connectDB = async () => {
     try {
